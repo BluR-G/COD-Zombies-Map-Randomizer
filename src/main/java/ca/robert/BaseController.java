@@ -9,35 +9,38 @@ import javafx.scene.image.ImageView;
 
 public class BaseController {
 
-    @FXML
-    private Button btnDecider;
+    @FXML private Button btnDecider;
+    @FXML private CheckBox ckbBlackOpsFour;
+    @FXML private CheckBox ckbBlackOpsOne;
+    @FXML private CheckBox ckbBlackOpsThree;
+    @FXML private CheckBox ckbBlackOpsTwo;
+    @FXML private CheckBox ckbColdWar;
+    @FXML private CheckBox ckbWorldAtWar;
+    @FXML private ImageView mapImageView;
+    @FXML private TextField mapName;
 
-    @FXML
-    private CheckBox ckbBlackOpsFour;
+    @FXML void mapDecide(ActionEvent event) {
 
-    @FXML
-    private CheckBox ckbBlackOpsOne;
+    }
 
-    @FXML
-    private CheckBox ckbBlackOpsThree;
+    @FXML void enableButton(ActionEvent event) {
+        boolean isChecked = false;
+        CheckBox[] ckbArr = new CheckBox[]
+        {ckbWorldAtWar, ckbBlackOpsOne, ckbBlackOpsTwo,ckbBlackOpsThree,ckbBlackOpsFour,ckbColdWar};
 
-    @FXML
-    private CheckBox ckbBlackOpsTwo;
+        for(CheckBox ckb : ckbArr){
+            if(ckb.isSelected()){
+                btnDecider.setDisable(false);
+                isChecked = true;
+                break;
+            }
+        } 
+        if(!isChecked){
+            btnDecider.setDisable(true);
+        }
+    }
 
-    @FXML
-    private CheckBox ckbColdWar;
-
-    @FXML
-    private CheckBox ckbWorldAtWar;
-
-    @FXML
-    private ImageView mapImageView;
-
-    @FXML
-    private TextField mapName;
-
-    @FXML
-    void mapDecide(ActionEvent event) {
+    public void load() {
 
     }
 

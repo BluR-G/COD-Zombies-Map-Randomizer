@@ -24,12 +24,12 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <CheckBox fx:id="ckbWorldAtWar" mnemonicParsing="false" style="-fx-padding: 7;" text="World At War" />
-            <CheckBox fx:id="ckbBlackOpsOne" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-padding: 7;" text="Black Ops 1" />
-            <CheckBox fx:id="ckbBlackOpsTwo" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-padding: 7;" text="Black Ops 2" />
-            <CheckBox fx:id="ckbBlackOpsThree" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-padding: 7;" text="Black Ops 3" />
-            <CheckBox fx:id="ckbBlackOpsFour" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-padding: 7;" text="Black Ops 4" />
-            <CheckBox fx:id="ckbColdWar" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-padding: 7;" styleClass="checkbox" text="Cold War" />
+            <CheckBox fx:id="ckbWorldAtWar" mnemonicParsing="false" onAction="#enableButton" style="-fx-padding: 7;" text="World At War" />
+            <CheckBox fx:id="ckbBlackOpsOne" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#enableButton" style="-fx-padding: 7;" text="Black Ops 1" />
+            <CheckBox fx:id="ckbBlackOpsTwo" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#enableButton" style="-fx-padding: 7;" text="Black Ops 2" />
+            <CheckBox fx:id="ckbBlackOpsThree" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#enableButton" style="-fx-padding: 7;" text="Black Ops 3" />
+            <CheckBox fx:id="ckbBlackOpsFour" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#enableButton" style="-fx-padding: 7;" text="Black Ops 4" />
+            <CheckBox fx:id="ckbColdWar" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#enableButton" style="-fx-padding: 7;" styleClass="checkbox" text="Cold War" />
          </children>
       </VBox>
       <VBox alignment="CENTER" layoutX="210.0" layoutY="66.0" prefHeight="268.0" prefWidth="257.0" style="-fx-padding: 15;">
