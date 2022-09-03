@@ -1,5 +1,9 @@
 package ca.robert;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import ca.robert.CallOfDuty.Game;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -19,14 +23,37 @@ public class BaseController {
     @FXML private ImageView mapImageView;
     @FXML private TextField mapName;
 
-    @FXML void mapDecide(ActionEvent event) {
 
+
+    @FXML void mapDecide(ActionEvent event) {
+        List<Game> gameSelected = new ArrayList<Game>();
+        MapGenerator generator = new MapGenerator();
+
+        if(ckbWorldAtWar.isSelected()){
+            gameSelected.add(Game.WORLD_AT_WAR);
+        } 
+        if(ckbBlackOpsOne.isSelected()){
+            gameSelected.add(Game.BLACK_OPS_1);
+        }
+        if(ckbBlackOpsTwo.isSelected()){
+            gameSelected.add(Game.BLACK_OPS_2);
+        }
+        if(ckbBlackOpsThree.isSelected()){
+            gameSelected.add(Game.BLACK_OPS_3);
+        }
+        if(ckbBlackOpsFour.isSelected()){
+            gameSelected.add(Game.BLACK_OPS_4);
+        }
+        if(ckbBlackOpsFour.isSelected()){
+            gameSelected.add(Game.COLD_WAR);
+        }
+
+        List<Map> maps = generator.addMapsToArray(gameSelected);
     }
 
     @FXML void enableButton(ActionEvent event) {
+        CheckBox[] ckbArr = new CheckBox[] {ckbWorldAtWar, ckbBlackOpsOne, ckbBlackOpsTwo,ckbBlackOpsThree,ckbBlackOpsFour,ckbColdWar};
         boolean isChecked = false;
-        CheckBox[] ckbArr = new CheckBox[]
-        {ckbWorldAtWar, ckbBlackOpsOne, ckbBlackOpsTwo,ckbBlackOpsThree,ckbBlackOpsFour,ckbColdWar};
 
         for(CheckBox ckb : ckbArr){
             if(ckb.isSelected()){
