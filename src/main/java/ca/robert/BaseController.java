@@ -39,9 +39,4 @@ public class BaseController {
             btnDecider.setDisable(true);
         }
     }
-
-    public void load() {
-
-    }
-
 }
