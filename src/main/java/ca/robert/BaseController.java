@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import ca.robert.CallOfDuty.Game;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,102 +15,68 @@ import javafx.scene.image.ImageView;
 
 public class BaseController {
 
-    @FXML private Button btnDecider;
-    @FXML private CheckBox ckbBlackOpsFour;
-    @FXML private CheckBox ckbBlackOpsOne;
-    @FXML private CheckBox ckbBlackOpsThree;
-    @FXML private CheckBox ckbBlackOpsTwo;
-    @FXML private CheckBox ckbColdWar;
-    @FXML private CheckBox ckbWorldAtWar;
-    @FXML private ImageView mapImageView;
-    @FXML private TextField mapName;
+    @FXML Button btnDecider;
+    @FXML CheckBox ckbBlackOpsFour;
+    @FXML CheckBox ckbBlackOpsOne;
+    @FXML CheckBox ckbBlackOpsThree;
+    @FXML CheckBox ckbBlackOpsTwo;
+    @FXML CheckBox ckbColdWar;
+    @FXML CheckBox ckbWorldAtWar;
+    @FXML ImageView mapImageView;
+    @FXML TextField mapName;
 
 
 
     @FXML void mapDecide(ActionEvent event) throws InterruptedException {
-        btnDecider.setDisable(true);
+        
         Thread t = new Thread(new Runnable() {
 
             @Override
             public void run() {
+                setAllNodes(true);
                 mapName.setStyle("-fx-text-fill: black;");
                 List<Game> gameSelected = new ArrayList<Game>();
                 MapGenerator generator = new MapGenerator();
                 Random rand = new Random();
                 
 
-                if(ckbWorldAtWar.isSelected()){
-                    gameSelected.add(Game.WORLD_AT_WAR);
-                } 
-                if(ckbBlackOpsOne.isSelected()){
-                    gameSelected.add(Game.BLACK_OPS_1);
-                }
-                if(ckbBlackOpsTwo.isSelected()){
-                    gameSelected.add(Game.BLACK_OPS_2);
-                }
-                if(ckbBlackOpsThree.isSelected()){
-                    gameSelected.add(Game.BLACK_OPS_3);
-                }
-                if(ckbBlackOpsFour.isSelected()){
-                    gameSelected.add(Game.BLACK_OPS_4);
-                }
-                if(ckbBlackOpsFour.isSelected()){
-                    gameSelected.add(Game.COLD_WAR);
-                }
-                int index = 0;
-                List<Map> maps = generator.addMapsToArray(gameSelected);
-                int finalIndex = rand.nextInt(maps.size());
-                for(int i = 0; i < 150; i++){
-                    index = postMap(index, maps);
-                    try {
-                        Thread.sleep(20);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        System.out.println("Info: i: "+ i + ", index" + index + "");
+                addMapsToList(gameSelected);
+                try{
+                    int mapsIndex = 0;
+                    List<Map> maps = generator.addMapsToArray(gameSelected);
+                    if(!maps.isEmpty()){
+                        int finalIndex = rand.nextInt(maps.size());
+    
+                        int iFrame = 0;
+                        int[] delayAdd = {0, 30, 70, 130};
+                        int[] delayDuration = {150, 30, 20, 10};
+                        int dAPos = 0;
+                        int initialDelay = 20;
+        
+                        while(dAPos < 4) {
+                            mapsIndex = postMap(mapsIndex, maps);
+                            
+                            Thread.sleep(initialDelay + delayAdd[dAPos]);
+                            if(iFrame++ > delayDuration[dAPos]){
+                                dAPos++;
+                                iFrame = 0;
+                            }
+                           
+                        }
+                        Map finalMap = maps.get(finalIndex);
+                        mapName.setText(finalMap.getMap() + " (" + finalMap.getGameStr() + ")");
                     }
+                    
+                    Platform.runLater(()->{
+                        setAllNodes(false);
+                        mapName.setStyle("-fx-text-fill: green;");
+                    });
+                    
+                } catch(Exception e) {
+                    e.printStackTrace();
+                    setAllNodes(false);
+                    mapName.setText("");
                 }
-                for(int i = 0; i < 30; i++){
-                    index = postMap(index, maps);
-                    try {
-                        Thread.sleep(50);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        System.out.println("Info: i: "+ i + ", index" + index + "");
-                    }
-                }
-                for(int i = 0; i < 20; i++){
-                    index = postMap(index, maps);
-                    try {
-                        Thread.sleep(90);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        System.out.println("Info: i: "+ i + ", index" + index + "");
-                    }
-                }
-                for(int i = 0; i < 10; i++){
-                    index = postMap(index, maps);
-                    try {
-                        Thread.sleep(150);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        System.out.println("Info: i: "+ i + ", index" + index + "");
-                    }
-                }
-
-                Map finalMap = maps.get(finalIndex);
-                mapName.setText(finalMap.getMap() + " (" + finalMap.getGameStr() + ")");
-                btnDecider.setDisable(false);
-                mapName.setStyle("-fx-text-fill: green;");
-            }
-
-            private int postMap(int index, List<Map> maps) {
-                if(index >= maps.size()){
-                    index = 0;
-                }
-                Map map = maps.get(index);
-                index++;
-                mapName.setText(map.getMap());
-                return index;
             }
             
         });
@@ -118,6 +85,50 @@ public class BaseController {
 
     }
 
+    private void addMapsToList(List<Game> gameSelected) {
+        if(ckbWorldAtWar.isSelected()){
+            gameSelected.add(Game.WORLD_AT_WAR);
+        } 
+        if(ckbBlackOpsOne.isSelected()){
+            gameSelected.add(Game.BLACK_OPS_1);
+        }
+        if(ckbBlackOpsTwo.isSelected()){
+            gameSelected.add(Game.BLACK_OPS_2);
+        }
+        if(ckbBlackOpsThree.isSelected()){
+            gameSelected.add(Game.BLACK_OPS_3);
+        }
+        if(ckbBlackOpsFour.isSelected()){
+            gameSelected.add(Game.BLACK_OPS_4);
+        }
+        if(ckbBlackOpsFour.isSelected()){
+            gameSelected.add(Game.COLD_WAR);
+        }
+    }
+    
+    private void setAllNodes(boolean condition) {
+            btnDecider.setDisable(condition);
+            ckbBlackOpsFour.setDisable(condition);
+            ckbBlackOpsOne.setDisable(condition);
+            ckbBlackOpsThree.setDisable(condition);
+            ckbBlackOpsTwo.setDisable(condition);
+            ckbColdWar.setDisable(condition);
+            ckbWorldAtWar.setDisable(condition);
+    }
+
+    private int postMap(int index, List<Map> maps) {
+        if(index >= maps.size()){
+            index = 0;
+        }
+        Map map = maps.get(index);
+        index++;
+        Platform.runLater(()->{
+            mapName.setText(map.getMap());
+        });
+        
+        return index;
+    }
+    
     @FXML void enableButton(ActionEvent event) {
         CheckBox[] ckbArr = new CheckBox[] {ckbWorldAtWar, ckbBlackOpsOne, ckbBlackOpsTwo,ckbBlackOpsThree,ckbBlackOpsFour,ckbColdWar};
         boolean isChecked = false;
