@@ -4,12 +4,14 @@ import ca.robert.CallOfDuty.Game;
 
 public class Map {
   private String map;
+  private String imgSrc;
   private Game game;
 
   
-  public Map(String map, Game game) {
+  public Map(String map, Game game, String imgSrc) {
     this.map = map;
     this.game = game;
+    this.imgSrc = imgSrc;
   }
 
   public String getMap() {
@@ -19,6 +21,11 @@ public class Map {
   public Game getGame() {
     return game;
   }
+
+  public String getImgSrc() {
+    return imgSrc;
+  }
+  
 
   public String getGameStr() {
     switch(game){

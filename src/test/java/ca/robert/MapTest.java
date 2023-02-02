@@ -22,7 +22,7 @@ public class MapTest {
 
     @Test
     public void testGetGameStrPass() {
-        Map map = new Map("test", Game.BLACK_OPS_1);
+        Map map = new Map("test", Game.BLACK_OPS_1, "test");
         String expectedGame = "Black Ops 1";
         String actualGame = map.getGameStr();
         assertEquals(expectedGame, actualGame);
@@ -30,7 +30,7 @@ public class MapTest {
 
     @Test
     public void testGetGameStrFail() {
-        Map map = new Map("test", Game.COLD_WAR);
+        Map map = new Map("test", Game.COLD_WAR, "test");
         String expectedGame = "World at War";
         String actualGame = map.getGameStr();
         assertNotEquals(expectedGame, actualGame);
