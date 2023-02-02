@@ -5,6 +5,9 @@
 package ca.robert;
 
 import org.junit.Test;
+
+import ca.robert.CallOfDuty.Game;
+
 import static org.junit.Assert.*;
 
 /**
@@ -16,46 +19,21 @@ public class MapTest {
     public MapTest() {
     }
 
-    /**
-     * Test of getMap method, of class Map.
-     */
+
     @Test
-    public void testGetMap() {
-        System.out.println("getMap");
-        Map instance = null;
-        String expResult = "";
-        String result = instance.getMap();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testGetGameStrPass() {
+        Map map = new Map("test", Game.BLACK_OPS_1);
+        String expectedGame = "Black Ops 1";
+        String actualGame = map.getGameStr();
+        assertEquals(expectedGame, actualGame);
     }
 
-    /**
-     * Test of getGame method, of class Map.
-     */
     @Test
-    public void testGetGame() {
-        System.out.println("getGame");
-        Map instance = null;
-        CallOfDuty.Game expResult = null;
-        CallOfDuty.Game result = instance.getGame();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getGameStr method, of class Map.
-     */
-    @Test
-    public void testGetGameStr() {
-        System.out.println("getGameStr");
-        Map instance = null;
-        String expResult = "";
-        String result = instance.getGameStr();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testGetGameStrFail() {
+        Map map = new Map("test", Game.COLD_WAR);
+        String expectedGame = "World at War";
+        String actualGame = map.getGameStr();
+        assertNotEquals(expectedGame, actualGame);
     }
     
 }
