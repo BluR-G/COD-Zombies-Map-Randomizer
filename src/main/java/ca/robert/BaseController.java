@@ -1,5 +1,7 @@
 package ca.robert;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -11,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class BaseController {
@@ -71,13 +74,18 @@ public class BaseController {
 
                         }
                         Map finalMap = maps.get(finalIndex);
-                        mapName.setText(finalMap.getMap() + " (" + finalMap.getGameStr() + ")");
+                        FileInputStream finalMapImageStream = new FileInputStream(finalMap.getImgSrc());
+                        Image finalMapImage = new Image(finalMapImageStream);
+                        
+                        Platform.runLater(() -> {
+                            mapName.setText(finalMap.getMap() + " (" + finalMap.getGameStr() + ")");
+                            mapImageView.setImage(finalMapImage);
+                            setAllNodes(false);
+                            mapName.setStyle("-fx-text-fill: green;");
+                        });
                     }
 
-                    Platform.runLater(() -> {
-                        setAllNodes(false);
-                        mapName.setStyle("-fx-text-fill: green;");
-                    });
+
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -122,12 +130,15 @@ public class BaseController {
         ckbWorldAtWar.setDisable(condition);
     }
 
-    private int postMap(int index, List<Map> maps) {
+    private int postMap(int index, List<Map> maps) throws FileNotFoundException {
         if (index >= maps.size()) {
             index = 0;
         }
         Map map = maps.get(index);
         index++;
+        FileInputStream mapImageStream = new FileInputStream(map.getImgSrc());
+        Image mapImage = new Image(mapImageStream);
+        mapImageView.setImage(mapImage);
         Platform.runLater(() -> {
             mapName.setText(map.getMap());
         });
