@@ -40,10 +40,10 @@ public class MapGenerator {
 
   private List<Map> addWorldAtWarMaps() {
     List<Map> worldAtWarMaps = new ArrayList<Map>();
-    worldAtWarMaps.add(new Map("Natch Der Untoten", Game.WORLD_AT_WAR, "src/main/resources/ca/robert/img/WAW/Nacht_Der_Untoten_WaW.png"));
-    worldAtWarMaps.add(new Map("Verruckt", Game.WORLD_AT_WAR, "src/main/resources/ca/robert/img/WAW/Verruckt_WaW.png"));
-    worldAtWarMaps.add(new Map("Shi No Numa", Game.WORLD_AT_WAR, "src/main/resources/ca/robert/img/WAW/Shi_No_Numa_WaW.png"));
-    worldAtWarMaps.add(new Map("Der Riese", Game.WORLD_AT_WAR, "src/main/resources/ca/robert/img/WAW/Der_Riese_WaW.png"));
+    worldAtWarMaps.add(new Map("Natch Der Untoten", Game.WORLD_AT_WAR, "src/main/resources/ca/robert/img/WAW/Nacht_Der_Untoten.png"));
+    worldAtWarMaps.add(new Map("Verruckt", Game.WORLD_AT_WAR, "src/main/resources/ca/robert/img/WAW/Verruckt.png"));
+    worldAtWarMaps.add(new Map("Shi No Numa", Game.WORLD_AT_WAR, "src/main/resources/ca/robert/img/WAW/Shi_No_Numa.png"));
+    worldAtWarMaps.add(new Map("Der Riese", Game.WORLD_AT_WAR, "src/main/resources/ca/robert/img/WAW/Der_Riese.png"));
     return worldAtWarMaps;
   }
 
@@ -53,12 +53,12 @@ public class MapGenerator {
     blackOpsOneMaps.add(new Map("Five", Game.BLACK_OPS_1, "src/main/resources/ca/robert/img/BO1/Five_BO1.png"));
     blackOpsOneMaps.add(new Map("Ascension", Game.BLACK_OPS_1, "src/main/resources/ca/robert/img/BO1/Ascension_BO1.png"));
     blackOpsOneMaps.add(new Map("Call of the Dead", Game.BLACK_OPS_1, "src/main/resources/ca/robert/img/BO1/Call_of_the_Dead_BO1.png"));
-    blackOpsOneMaps.add(new Map("Shangri-La", Game.BLACK_OPS_1, "src/main/resources/ca/robert/img/BO1/Shangri_La_BO1.png"));
+    blackOpsOneMaps.add(new Map("Shangri-La", Game.BLACK_OPS_1, "src/main/resources/ca/robert/img/BO1/Shangri-La_BO1.png"));
     blackOpsOneMaps.add(new Map("Moon", Game.BLACK_OPS_1, "src/main/resources/ca/robert/img/BO1/Moon_BO1.png"));
-    blackOpsOneMaps.add(new Map("Natch Der Untoten", Game.BLACK_OPS_1, "src/main/resources/ca/robert/img/BO1/Nacht_Der_Untoten_BO1.png"));
-    blackOpsOneMaps.add(new Map("Verruckt", Game.BLACK_OPS_1, "src/main/resources/ca/robert/img/BO1/Verruckt_BO1.png"));
-    blackOpsOneMaps.add(new Map("Shi No Numa", Game.BLACK_OPS_1, "src/main/resources/ca/robert/img/BO1/Shi_No_Numa_BO1.png"));
-    blackOpsOneMaps.add(new Map("Der Riese", Game.BLACK_OPS_1, "src/main/resources/ca/robert/img/BO1/Der_Riese_BO1.png"));
+    blackOpsOneMaps.add(new Map("Natch Der Untoten", Game.BLACK_OPS_1, "src/main/resources/ca/robert/img/WAW/Nacht_Der_Untoten.png"));
+    blackOpsOneMaps.add(new Map("Verruckt", Game.BLACK_OPS_1, "src/main/resources/ca/robert/img/WAW/Verruckt.png"));
+    blackOpsOneMaps.add(new Map("Shi No Numa", Game.BLACK_OPS_1, "src/main/resources/ca/robert/img/WAW/Shi_No_Numa.png"));
+    blackOpsOneMaps.add(new Map("Der Riese", Game.BLACK_OPS_1, "src/main/resources/ca/robert/img/WAW/Der_Riese.png"));
     return blackOpsOneMaps;
   }
 

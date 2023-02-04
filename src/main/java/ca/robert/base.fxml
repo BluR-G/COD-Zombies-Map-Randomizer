@@ -14,7 +14,7 @@
    <children>
       <Text layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COD Zombies Map Randomizer" textAlignment="CENTER" wrappingWidth="467.0">
          <font>
-            <Font size="36.0" />
+            <Font size="30.0" />
          </font>
       </Text>
       <VBox layoutX="14.0" layoutY="77.0" prefHeight="246.0" prefWidth="172.0">
@@ -32,9 +32,8 @@
             <CheckBox fx:id="ckbColdWar" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#enableButton" style="-fx-padding: 7;" styleClass="checkbox" text="Cold War" />
          </children>
       </VBox>
-      <VBox alignment="CENTER" layoutX="210.0" layoutY="66.0" prefHeight="268.0" prefWidth="257.0" style="-fx-padding: 15;">
+      <VBox alignment="CENTER" layoutX="211.0" layoutY="157.0" prefHeight="268.0" prefWidth="257.0" style="-fx-padding: 15;">
          <children>
-            <ImageView fx:id="mapImageView" fitHeight="173.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true" />
             <TextField fx:id="mapName" alignment="CENTER" editable="false" prefHeight="25.0" prefWidth="537.0" />
             <Button fx:id="btnDecider" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#mapDecide" text="Decide" textAlignment="CENTER">
                <VBox.margin>
@@ -43,5 +42,6 @@
             </Button>
          </children>
       </VBox>
+      <ImageView fx:id="mapImageView" fitHeight="173.0" fitWidth="218.0" layoutX="230.0" layoutY="70.0" pickOnBounds="true" />
    </children>
 </AnchorPane>
