@@ -10,14 +10,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="467.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.robert.BaseController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="499.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.robert.BaseController">
    <children>
-      <Text layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COD Zombies Map Randomizer" textAlignment="CENTER" wrappingWidth="467.0">
+      <Text layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COD Zombies Map Randomizer" textAlignment="CENTER" wrappingWidth="499.0">
          <font>
-            <Font size="30.0" />
+            <Font size="33.0" />
          </font>
       </Text>
-      <VBox layoutX="14.0" layoutY="77.0" prefHeight="246.0" prefWidth="172.0">
+      <VBox layoutX="27.0" layoutY="77.0" prefHeight="246.0" prefWidth="172.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Game Filter: " textAlignment="CENTER" underline="true">
                <font>
@@ -32,7 +32,7 @@
             <CheckBox fx:id="ckbColdWar" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#enableButton" style="-fx-padding: 7;" styleClass="checkbox" text="Cold War" />
          </children>
       </VBox>
-      <VBox alignment="CENTER" layoutX="211.0" layoutY="157.0" prefHeight="268.0" prefWidth="257.0" style="-fx-padding: 15;">
+      <VBox alignment="CENTER" layoutX="199.0" layoutY="177.0" prefHeight="268.0" prefWidth="257.0" style="-fx-padding: 15;">
          <children>
             <TextField fx:id="mapName" alignment="CENTER" editable="false" prefHeight="25.0" prefWidth="537.0" />
             <Button fx:id="btnDecider" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#mapDecide" text="Decide" textAlignment="CENTER">
@@ -42,6 +42,6 @@
             </Button>
          </children>
       </VBox>
-      <ImageView fx:id="mapImageView" fitHeight="173.0" fitWidth="250.0" layoutX="215.0" layoutY="61.0" pickOnBounds="true" />
+      <ImageView fx:id="mapImageView" fitHeight="173.0" fitWidth="250.0" layoutX="203.0" layoutY="91.0" pickOnBounds="true" />
    </children>
 </AnchorPane>
