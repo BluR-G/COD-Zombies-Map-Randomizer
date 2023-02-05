@@ -87,7 +87,7 @@ public class MapGenerator {
     blackOpsThreeMaps.add(new Map("Nacht Der Untoten", Game.BLACK_OPS_3, "src/main/resources/ca/robert/img/BO3/Nacht_Der_Untoten_BO3.png"));
     blackOpsThreeMaps.add(new Map("Verruckt", Game.BLACK_OPS_3, "src/main/resources/ca/robert/img/BO3/Verruckt_BO3.png"));
     blackOpsThreeMaps.add(new Map("Shi No Numa", Game.BLACK_OPS_3, "src/main/resources/ca/robert/img/BO3/Shi_No_Numa_BO3.png"));
-    blackOpsThreeMaps.add(new Map("Kino Der Untoten", Game.BLACK_OPS_3, "src/main/resources/ca/robert/img/BO3/Kino_Der_Untoten_BO3.png"));
+    blackOpsThreeMaps.add(new Map("Kino Der Untoten", Game.BLACK_OPS_3, "src/main/resources/ca/robert/img/BO3/Kino_Der_Toten_BO3.png"));
     blackOpsThreeMaps.add(new Map("Ascension", Game.BLACK_OPS_3, "src/main/resources/ca/robert/img/BO3/Ascension_BO3.png"));
     blackOpsThreeMaps.add(new Map("Shangri-La", Game.BLACK_OPS_3, "src/main/resources/ca/robert/img/BO3/Shangri_La_BO3.png"));
     blackOpsThreeMaps.add(new Map("Moon", Game.BLACK_OPS_3, "src/main/resources/ca/robert/img/BO3/Moon_BO3.png"));

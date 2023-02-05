@@ -115,7 +115,7 @@ public class BaseController {
         if (ckbBlackOpsFour.isSelected()) {
             gameSelected.add(Game.BLACK_OPS_4);
         }
-        if (ckbBlackOpsFour.isSelected()) {
+        if (ckbColdWar.isSelected()) {
             gameSelected.add(Game.COLD_WAR);
         }
     }
